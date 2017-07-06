@@ -1,9 +1,10 @@
 /**
  * @file publish-subscribe
  * @author foshou
- * 一个topicName可以订阅多个事件，都放在数组里，发布时依次从数组里取出注册的回调并执行
  */
-'use strict';
+ 'use strict';
+
+// 一个topicName可以订阅多个事件，都放在数组里，发布时依次从数组里取出注册的回调并执行
 
 class PublishSubscribe {
     constructor() {
