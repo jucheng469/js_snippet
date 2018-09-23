@@ -19,7 +19,9 @@ class Person {
 
 class Teacher extends Person {
     constructor(...args) {
+        debugger
         super(...args);
+        console.log(super.constructor === Person.prototype.constructor);
     }
 
     getJob() {
@@ -38,7 +40,7 @@ class Student extends Person {
 }
 
 // test
-const persona = new Student('deinal', 10);
+const person = new Student('deinal', 10);
 
 const teacher = new Teacher('John', 26);
 const job = teacher.getJob();
@@ -53,3 +55,7 @@ Object.getOwnPropertyNames(student);
 delete Person.prototype.sayAge;
 Object.getOwnPropertyNames(person);
 
+// 删除constructor，原型无法指回constructor了，但是还是可以new实例的
+Person.prototype.constructor === Object.prototype.constructor; // false
+delete Person.prototype.constructor;
+Person.prototype.constructor === Object.prototype.constructor; // true
